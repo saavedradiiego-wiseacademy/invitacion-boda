@@ -1,69 +1,63 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Invitación — Diego & Valentina</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación Diego & Valentina</title>
   <style>
-    :root { --bg:#f6f3ef; --card:#ffffff; --accent:#7b5f50; --muted:#6b6b6b; }
-    html,body {
-      height:100%; margin:0;
-      font-family:-apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-      background:var(--bg); color:#222;
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      font-family: 'Georgia', serif;
     }
-    .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:24px;box-sizing:border-box;}
-    .card{max-width:900px;width:100%;background:var(--card);border-radius:14px;
-      box-shadow:0 8px 30px rgba(0,0,0,0.08);padding:28px;box-sizing:border-box;}
-    .names{font-size:2rem;font-weight:700;color:var(--accent);text-align:center;margin:6px 0 12px;}
-    .subtitle{text-align:center;color:var(--muted);margin:0 0 18px;font-size:0.95rem;}
-    .details{display:flex;gap:20px;flex-wrap:wrap;align-items:center;justify-content:center;margin-bottom:18px;}
-    .detail-box{min-width:220px;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(123,95,80,0.06), rgba(255,255,255,0));text-align:center;}
-    .verse{font-style:italic;color:var(--muted);text-align:center;margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,0.04);}
-    .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px;}
-    .btn{background:var(--accent);color:white;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:600;display:inline-block;}
-    .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(123,95,80,0.15);}
-    .qr{display:flex;gap:12px;align-items:center;justify-content:center;margin-top:16px;}
-    .footer{text-align:center;color:var(--muted);font-size:0.85rem;margin-top:18px;}
-    @media (max-width:600px){ .names{font-size:1.6rem} .detail-box{min-width:150px} }
+    .section {
+      width: 100%;
+      text-align: center;
+    }
+    .section img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <article class="card" id="invitacion">
-      <h1 style="text-align:center;margin:0;font-size:1.1rem;color:var(--muted);">El Matrimonio de</h1>
-      <div class="names">Diego Fernando Saavedra Blanco & Valentina Alejandra Vera Hernandez</div>
-      <div class="subtitle">27 de diciembre de 2025 — Sábado, 4:00 pm · Santuario María de las gracias de Torcoroma</div>
 
-      <div class="details">
-        <div class="detail-box">
-          <strong>Fecha</strong><div style="margin-top:6px">27 de diciembre de 2025 — Sábado, 4:00 pm</div>
-        </div>
-        <div class="detail-box">
-          <strong>Lugar</strong><div style="margin-top:6px">Santuario María de las gracias de Torcoroma, Calle 14 carrera 57D, Cartagena, Colombia</div>
-        </div>
-      </div>
-
-      <p class="verse">“El que encontró una esposa encontró la felicidad; Dios es quien le otorgó ese favor.” — Proverbios 18,22</p>
-
-      <div class="actions">
-        <a class="btn" href="mailto:?subject=RSVP%20-%20Boda%20Diego%20%26%20Valentina&body=Hola%2C%0A%0AConfirmo%20mi%20asistencia%20a%20la%20boda%20de%20Diego%20y%20Valentina.%0A%0ANombre%3A%0AInvitados%3A%0AComentario%3A" title="Confirmar asistencia por correo">Confirmar asistencia (correo)</a>
-        <a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=Calle+14+carrera+57D+Cartagena+Colombia" target="_blank" rel="noopener">Ver ubicación en Google Maps</a>
-      </div>
-
-      <div class="qr">
-        <div>
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DCalle%2B14%2Bcarrera%2B57D%2BCartagena%2BColombia" alt="QR con la ubicación" style="width:120px;height:120px;border-radius:8px;border:1px solid rgba(0,0,0,0.04)">
-        </div>
-        <div style="max-width:540px;color:var(--muted);font-size:0.95rem">
-          Escanee el QR para abrir la ubicación en su teléfono.<br>
-          Dirección: Santuario María de las gracias de Torcoroma, Calle 14 carrera 57D, Cartagena, Colombia
-        </div>
-      </div>
-
-      <div class="footer">
-        <small>Invitación digital · 2025</small>
-      </div>
-    </article>
+  <!-- Portada -->
+  <div class="section">
+    <img src="1.png" alt="Portada Matrimonio Diego y Valentina">
   </div>
+
+  <!-- Variante portada -->
+  <div class="section">
+    <img src="2.png" alt="Portada variante">
+  </div>
+
+  <!-- Foto de los novios -->
+  <div class="section">
+    <img src="3.png" alt="Invitación con foto de los novios">
+  </div>
+
+  <!-- Fecha y lugar con QR -->
+  <div class="section">
+    <img src="5.png" alt="Fecha y lugar con QR">
+  </div>
+
+  <!-- Fecha y lugar con contador -->
+  <div class="section">
+    <img src="6.png" alt="Fecha y lugar con contador">
+  </div>
+
+  <!-- Versículo bíblico -->
+  <div class="section">
+    <img src="7.png" alt="Versículo bíblico Valentina y Diego">
+  </div>
+
+  <!-- Versículo alterno -->
+  <div class="section">
+    <img src="8.png" alt="Versículo alterno Valentina y Diego">
+  </div>
+
 </body>
 </html>
