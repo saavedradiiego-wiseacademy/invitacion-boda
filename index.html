@@ -14,11 +14,26 @@
     .section {
       width: 100%;
       text-align: center;
+      position: relative;
     }
     .section img {
       width: 100%;
       height: auto;
       display: block;
+    }
+
+    /* Botón transparente sobre la portada */
+    .music-btn {
+      position: absolute;
+      top: 80%;  /* ajuste según donde esté el ícono de música en la portada */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;  /* tamaño del área clickeable */
+      height: 100px;
+      cursor: pointer;
+      background: rgba(255,255,255,0); /* invisible */
+      border: none;
+      outline: none;
     }
 
     /* Botón flotante ubicación */
@@ -47,7 +62,7 @@
       position: fixed;
       bottom: 25px;
       left: 20px;
-      color: #b8922a; /* Dorado */
+      color: #b8922a;
       font-size: 18px;
       font-weight: bold;
       line-height: 1.4;
@@ -63,27 +78,22 @@
 </head>
 <body>
 
-  <!-- Portada -->
+  <!-- Portada con botón de música -->
   <div class="section">
     <img src="1.png" alt="Portada Matrimonio Diego y Valentina">
+    <button class="music-btn" onclick="toggleMusic()"></button>
   </div>
 
-  <!-- Foto de los novios -->
+  <!-- Otras secciones -->
   <div class="section">
     <img src="3.png" alt="Invitación con foto de los novios">
   </div>
-
-  <!-- Fecha y lugar con QR -->
   <div class="section">
     <img src="5.png" alt="Fecha y lugar con QR">
   </div>
-
-  <!-- Fecha y lugar con contador (imagen original) -->
   <div class="section">
     <img src="6.png" alt="Fecha y lugar con contador">
   </div>
-
-  <!-- Versículo alterno -->
   <div class="section">
     <img src="8.png" alt="Versículo Valentina y Diego">
   </div>
@@ -99,11 +109,16 @@
     <span id="countdown-time">0 días · 0h · 0m · 0s</span>
   </div>
 
-  <!-- Script del contador -->
+  <!-- Reproductor oculto -->
+  <audio id="bg-music" loop>
+    <source src="cancion.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <!-- Script del contador y música -->
   <script>
     // Fecha objetivo (27 de diciembre de 2025 a las 16:00)
     const weddingDate = new Date("Dec 27, 2025 16:00:00").getTime();
-
     const countdownTime = document.getElementById("countdown-time");
 
     setInterval(() => {
@@ -122,6 +137,19 @@
 
       countdownTime.innerHTML = `${days} días · ${hours}h · ${minutes}m · ${seconds}s`;
     }, 1000);
+
+    // Música
+    let isPlaying = false;
+    const music = document.getElementById("bg-music");
+
+    function toggleMusic() {
+      if (isPlaying) {
+        music.pause();
+      } else {
+        music.play();
+      }
+      isPlaying = !isPlaying;
+    }
   </script>
 
 </body>
