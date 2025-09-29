@@ -21,35 +21,12 @@
       display: block;
     }
 
-    /* Estilos del contador */
-    .countdown-container {
-      text-align: center;
-      padding: 30px 10px;
-      background: #fdf8f2;
-    }
-    .countdown-title {
-      font-size: 26px;
-      font-weight: bold;
-      color: #b8922a; /* Dorado */
-      margin-bottom: 15px;
-    }
-    .countdown {
-      display: inline-block;
-      font-size: 22px;
-      font-weight: bold;
-      color: #fff;
-      background: linear-gradient(135deg, #d4af37, #b8922a);
-      padding: 12px 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    /* Botón flotante */
+    /* Botón flotante ubicación */
     .floating-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #d4af37; /* Dorado */
+      background: #d4af37;
       color: white;
       padding: 15px 20px;
       border-radius: 30px;
@@ -63,6 +40,24 @@
     .floating-btn:hover {
       background: #b8922a;
       transform: scale(1.05);
+    }
+
+    /* Contador flotante minimalista */
+    .floating-countdown {
+      position: fixed;
+      bottom: 25px;
+      left: 20px;
+      color: #b8922a; /* Dorado */
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1.4;
+      z-index: 1000;
+      text-align: left;
+    }
+    .floating-countdown span {
+      display: block;
+      font-size: 22px;
+      margin-top: 3px;
     }
   </style>
 </head>
@@ -83,15 +78,9 @@
     <img src="5.png" alt="Fecha y lugar con QR">
   </div>
 
-  <!-- Fecha y lugar con contador -->
+  <!-- Fecha y lugar con contador (imagen original) -->
   <div class="section">
     <img src="6.png" alt="Fecha y lugar con contador">
-  </div>
-
-  <!-- Contador en vivo -->
-  <div class="countdown-container">
-    <div class="countdown-title">⏳ Falta para nuestra boda:</div>
-    <div id="countdown" class="countdown"></div>
   </div>
 
   <!-- Versículo alterno -->
@@ -104,19 +93,25 @@
     📍 Ver ubicación
   </a>
 
+  <!-- Contador flotante minimalista -->
+  <div id="countdown" class="floating-countdown">
+    días restantes para nuestra boda:
+    <span id="countdown-time">0 días · 0h · 0m · 0s</span>
+  </div>
+
   <!-- Script del contador -->
   <script>
     // Fecha objetivo (27 de diciembre de 2025 a las 16:00)
     const weddingDate = new Date("Dec 27, 2025 16:00:00").getTime();
 
-    const countdown = document.getElementById("countdown");
+    const countdownTime = document.getElementById("countdown-time");
 
     setInterval(() => {
       const now = new Date().getTime();
       const distance = weddingDate - now;
 
       if (distance < 0) {
-        countdown.innerHTML = "🎉 ¡Ya estamos casados!";
+        countdownTime.innerHTML = "🎉 ¡Ya estamos casados!";
         return;
       }
 
@@ -125,7 +120,7 @@
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      countdown.innerHTML = `${days} días · ${hours}h · ${minutes}m · ${seconds}s`;
+      countdownTime.innerHTML = `${days} días · ${hours}h · ${minutes}m · ${seconds}s`;
     }, 1000);
   </script>
 
