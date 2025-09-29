@@ -25,13 +25,13 @@
     /* Botón transparente sobre la portada */
     .music-btn {
       position: absolute;
-      top: 90%;  /* ajuste según donde esté el ícono de música en la portada */
+      top: 95%;  /* Ajuste según la ubicación del ícono en la portada */
       left: 50%;
       transform: translateX(-50%);
-      width: 100px;  /* tamaño del área clickeable */
+      width: 100px;
       height: 100px;
       cursor: pointer;
-      background: rgba(255,255,255,0); /* invisible */
+      background: rgba(255,255,255,0);
       border: none;
       outline: none;
     }
@@ -57,22 +57,26 @@
       transform: scale(1.05);
     }
 
-    /* Contador flotante minimalista */
-    .floating-countdown {
+    /* Contador superior centrado */
+    .top-countdown {
       position: fixed;
-      bottom: 25px;
-      left: 20px;
-      color: #b8922a;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255,255,255,0.9);
+      padding: 10px 20px;
+      border-radius: 12px;
       font-size: 18px;
       font-weight: bold;
-      line-height: 1.4;
+      color: #b8922a;
+      text-align: center;
       z-index: 1000;
-      text-align: left;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
-    .floating-countdown span {
+    .top-countdown span {
       display: block;
-      font-size: 22px;
-      margin-top: 3px;
+      font-size: 20px;
+      margin-top: 4px;
     }
   </style>
 </head>
@@ -103,8 +107,8 @@
     📍 Ver ubicación
   </a>
 
-  <!-- Contador flotante minimalista -->
-  <div id="countdown" class="floating-countdown">
+  <!-- Contador superior centrado -->
+  <div id="countdown" class="top-countdown">
     días restantes para nuestra boda:
     <span id="countdown-time">0 días · 0h · 0m · 0s</span>
   </div>
