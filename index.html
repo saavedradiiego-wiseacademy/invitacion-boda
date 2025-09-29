@@ -20,6 +20,35 @@
       height: auto;
       display: block;
     }
+
+    /* Estilos del contador */
+    .countdown {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2c3e50;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    /* Botón flotante */
+    .floating-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #d4af37; /* Dorado elegante */
+      color: white;
+      padding: 15px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    .floating-btn:hover {
+      background: #b8922a;
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
@@ -27,11 +56,6 @@
   <!-- Portada -->
   <div class="section">
     <img src="1.png" alt="Portada Matrimonio Diego y Valentina">
-  </div>
-
-  <!-- Variante portada -->
-  <div class="section">
-    <img src="2.png" alt="Portada variante">
   </div>
 
   <!-- Foto de los novios -->
@@ -49,15 +73,46 @@
     <img src="6.png" alt="Fecha y lugar con contador">
   </div>
 
-  <!-- Versículo bíblico -->
+  <!-- Contador en vivo -->
   <div class="section">
-    <img src="7.png" alt="Versículo bíblico Valentina y Diego">
+    <h2>⏳ Falta para nuestra boda:</h2>
+    <div id="countdown" class="countdown"></div>
   </div>
 
   <!-- Versículo alterno -->
   <div class="section">
-    <img src="8.png" alt="Versículo alterno Valentina y Diego">
+    <img src="8.png" alt="Versículo Valentina y Diego">
   </div>
+
+  <!-- Botón flotante Google Maps -->
+  <a class="floating-btn" href="https://maps.app.goo.gl/u2EPvhfjc1nNjWbu9" target="_blank">
+    📍 Ver ubicación
+  </a>
+
+  <!-- Script del contador -->
+  <script>
+    // Fecha objetivo (27 de diciembre de 2025 a las 16:00)
+    const weddingDate = new Date("Dec 27, 2025 16:00:00").getTime();
+
+    const countdown = document.getElementById("countdown");
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) {
+        countdown.innerHTML = "🎉 ¡Ya estamos casados!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `${days} días ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  </script>
 
 </body>
 </html>
