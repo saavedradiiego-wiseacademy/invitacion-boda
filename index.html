@@ -25,7 +25,7 @@
     /* Botón transparente sobre la portada */
     .music-btn {
       position: absolute;
-      top: 95%;  /* Ajuste según la ubicación del ícono en la portada */
+      top: 92%;  /* Ajuste según la ubicación del ícono en la portada */
       left: 50%;
       transform: translateX(-50%);
       width: 100px;
@@ -36,13 +36,11 @@
       outline: none;
     }
 
-    /* Botón flotante ubicación */
+    /* Botón flotante ubicación con brillo */
     .floating-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #d4af37;
-      color: white;
       padding: 15px 20px;
       border-radius: 30px;
       text-decoration: none;
@@ -51,32 +49,46 @@
       box-shadow: 0 4px 6px rgba(0,0,0,0.2);
       transition: all 0.3s ease;
       z-index: 1000;
+
+      background: linear-gradient(90deg, #b8922a, #f8e473, #b8922a);
+      background-size: 200% auto;
+      animation: shine 3s linear infinite;
+      color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     .floating-btn:hover {
-      background: #b8922a;
       transform: scale(1.05);
     }
 
-    /* Contador superior centrado */
+    /* Contador superior centrado con animación dorada */
     .top-countdown {
       position: fixed;
       top: 10px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(255,255,255,0.9);
-      padding: 10px 20px;
-      border-radius: 12px;
       font-size: 18px;
       font-weight: bold;
-      color: #b8922a;
       text-align: center;
       z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+
+      background: linear-gradient(90deg, #b8922a, #f8e473, #b8922a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% auto;
+      animation: shine 3s linear infinite;
     }
     .top-countdown span {
       display: block;
-      font-size: 20px;
+      font-size: 22px;
       margin-top: 4px;
+    }
+
+    /* Animación de brillo */
+    @keyframes shine {
+      to {
+        background-position: 200% center;
+      }
     }
   </style>
 </head>
